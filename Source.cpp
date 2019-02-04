@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <limits>
 
-bool ShowBit(const std::uint8_t& N) {
+bool ShowBit(const std::uint16_t& N) {
 
 	for (std::size_t i = 0; i <= std::numeric_limits<std::uint8_t>::digits; i++) {
 		std::cout << (N&(1 << (std::numeric_limits<std::uint8_t>::digits - i))) ? '1' : '0';
@@ -12,9 +12,10 @@ bool ShowBit(const std::uint8_t& N) {
 
 int main() {
 	/**/
-	for (std::int8_t i = 0x20; i <= 0x7e; i++) {
+	
+	for (std::int16_t i = 0x20; i <= 0x7f; i++) {
 		if (i % 16) {
-			std::cout <<'['<< i<<' '<<static_cast<int>(i)<<']'<<'[';
+			std::cout <<'['<< static_cast<char>(i)<<' '<<static_cast<int>(i)<<']'<<'[';
 			ShowBit(i);
 			std::cout << ']' << std::endl;
 		}
@@ -24,6 +25,8 @@ int main() {
 		}
 	}
 	/**/
+	
+	std::cout <<static_cast<char>( 0b110001 ) <<' '<<0b110001<< std::endl;	
 	
 	return 0;
 }
